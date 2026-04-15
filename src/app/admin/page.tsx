@@ -26,7 +26,7 @@ export default async function AdminDashboard() {
           <div className="w-7 h-7 rounded-lg overflow-hidden ring-1 ring-zinc-700 flex-shrink-0">
             <Image src="/logo.svg" alt="TheWhy" width={28} height={28} className="w-full h-full object-cover" />
           </div>
-          <span className="font-extrabold text-sm tracking-tight text-white">TheWhy</span>
+          <Link href="/" className="font-extrabold text-sm tracking-tight text-white">TheWhy</Link>
           <span className="ml-auto text-[10px] font-semibold bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded-full">Admin</span>
         </div>
 

@@ -87,9 +87,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---- Dark-mode prose fix ------------------------------------------ */
-/* @tailwindcss/typography uses its own internal --tw-prose-body etc.
-   variables. Override them in dark mode so article content is readable. */
+/* ---- Prose (Typography) Fix --------------------------------------- */
+/* @tailwindcss/typography uses internal variables. We map them to our tokens
+   so article content is readable in both light and dark modes. */
+
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground);
+  --tw-prose-links: var(--primary);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--primary);
+  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-code: var(--primary);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--muted);
+  color: var(--foreground);
+}
+
 .dark .prose {
   --tw-prose-body: #e2e8f0;
   --tw-prose-headings: #f8fafc;
