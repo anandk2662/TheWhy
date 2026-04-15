@@ -31,7 +31,7 @@ export async function sendWelcomeEmail(to: string) {
           <p style="color:#475569;line-height:1.7;margin:0 0 32px;">
             No spam, ever. Just quality content when I have something worth sharing.
           </p>
-          <a href="https://TheWhy.com/blog"
+          <a href="https://the-why.app/blog"
              style="display:inline-block;background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);color:#ffffff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;">
             Read the Blog →
           </a>
