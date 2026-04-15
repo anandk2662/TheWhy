@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/mdx';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://TheWhy.example.com";
+  const baseUrl = "https://the-why.app";
   const posts = await getAllPosts();
 
 
