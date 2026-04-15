@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#000000"/>
+  <text
+    x="100"
+    y="115"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="38"
+    font-weight="400"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="-0.5"
+  >TheWhy</text>
+</svg>

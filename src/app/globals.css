@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* =====================================================================
+   TheWhy — Design Tokens
+   Next-Themes injects .dark on <html>. We define two sets of raw
+   CSS custom properties so Tailwind's var() references always pick up
+   the active theme values at runtime.
+   ===================================================================== */
+
+/* --- Light mode (default) ------------------------------------------ */
+:root {
+  --background: #f8f9fb;
+  --foreground: #0a0a0f;
+  --card: #ffffff;
+  --card-foreground: #0a0a0f;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0f;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2ff;
+  --secondary-foreground: #1e3a8a;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --accent: #eff6ff;
+  --accent-foreground: #1d4ed8;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
+}
+
+/* --- Dark mode ------------------------------------------------------- */
+.dark {
+  --background: #09090b;
+  --foreground: #f8fafc;
+  --card: #111114;
+  --card-foreground: #f8fafc;
+  --popover: #111114;
+  --popover-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e24;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e1e24;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #93c5fd;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #3b82f6;
+}
+
+/* --- Wire Tailwind colour tokens to our CSS vars -------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* --- Base resets ---------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Dark-mode prose fix ------------------------------------------ */
+/* @tailwindcss/typography uses its own internal --tw-prose-body etc.
+   variables. Override them in dark mode so article content is readable. */
+.dark .prose {
+  --tw-prose-body: #e2e8f0;
+  --tw-prose-headings: #f8fafc;
+  --tw-prose-lead: #94a3b8;
+  --tw-prose-links: #93c5fd;
+  --tw-prose-bold: #f8fafc;
+  --tw-prose-counters: #94a3b8;
+  --tw-prose-bullets: #475569;
+  --tw-prose-hr: #27272a;
+  --tw-prose-quotes: #e2e8f0;
+  --tw-prose-quote-borders: #3b82f6;
+  --tw-prose-captions: #94a3b8;
+  --tw-prose-code: #93c5fd;
+  --tw-prose-th-borders: #27272a;
+  --tw-prose-td-borders: #1e293b;
+  color: #e2e8f0;
+}
+
