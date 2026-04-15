@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache";
 import connectDB from "@/lib/db";
 import Post from "@/models/Post";
+import Subscriber from "@/models/Subscriber";
+import { sendNewPostEmail } from "@/lib/mailer";
 
 export async function saveMDXPost(slug: string, frontmatter: any, content: string, isNew: boolean = false) {
   await connectDB();
@@ -24,6 +26,26 @@ export async function saveMDXPost(slug: string, frontmatter: any, content: strin
       throw new Error("A post with this slug already exists.");
     }
     await Post.create({ ...postData, slug: safeSlug });
+
+    // --- Send Email Notifications to All Subscribers ---
+    try {
+      const subscribers = await Subscriber.find({}, "email");
+      const emailList = subscribers.map((s: any) => s.email);
+      
+      if (emailList.length > 0) {
+        // We trigger this without 'await' if we want it to be backgrounded, 
+        // but since this is a Server Action and we want to ensure it completes, 
+        // we'll await it but wrap in a try-catch to be safe.
+        await sendNewPostEmail(emailList, {
+          title: postData.title,
+          description: postData.description,
+          slug: safeSlug,
+        });
+      }
+    } catch (mailError) {
+      console.error("Failed to send subscriber notifications:", mailError);
+      // We don't throw the error, so the user still sees their post as "Saved"
+    }
   } else {
     await Post.findOneAndUpdate({ slug: safeSlug }, postData, { upsert: true });
   }
