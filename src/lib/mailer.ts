@@ -52,7 +52,7 @@ export async function sendNewPostEmail(
 ) {
   if (subscribers.length === 0) return;
   const resend = getResend();
-  const postUrl = `https://TheWhy.com/blog/${post.slug}`;
+  const postUrl = `https://the-why.app/blog/${post.slug}`;
 
   // Resend supports batch sending — send to all at once using bcc to keep it private
   await resend.emails.send({
